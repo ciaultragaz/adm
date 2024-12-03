@@ -78,6 +78,20 @@
 			</div>
 		</div>
 	</div>
+	<div class="chat-button">
+		<button id="chatToggle" class="btn btn-primary">Chat</button>
+	</div>
+	<div id="chatWindow" class="chat-window" style="display: none;">
+		<div class="chat-header">
+			<h5>Chatbot</h5>
+			<button id="closeChat" class="close">&times;</button>
+		</div>
+		<div class="chat-body">
+			<div id="chatMessages" class="chat-messages"></div>
+			<input type="text" id="chatInput" class="form-control" placeholder="Type a message...">
+			<button id="sendChat" class="btn btn-primary">Send</button>
+		</div>
+	</div>
 	<div id="modalUploadPhoto" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -140,3 +154,33 @@
         	 </div>
 			</div>
 		</div>
+
+<script>
+	document.getElementById('chatToggle').addEventListener('click', function() {
+		var chatWindow = document.getElementById('chatWindow');
+		chatWindow.style.display = chatWindow.style.display === 'none' ? 'block' : 'none';
+	});
+
+	document.getElementById('closeChat').addEventListener('click', function() {
+		document.getElementById('chatWindow').style.display = 'none';
+	});
+
+	document.getElementById('sendChat').addEventListener('click', function() {
+		var input = document.getElementById('chatInput');
+		var message = input.value;
+		if (message.trim() !== '') {
+			var chatMessages = document.getElementById('chatMessages');
+			var newMessage = document.createElement('div');
+			newMessage.textContent = message;
+			chatMessages.appendChild(newMessage);
+			input.value = '';
+
+			// Simulate sending message to chatbot API
+			setTimeout(function() {
+				var botReply = document.createElement('div');
+				botReply.textContent = 'Bot: ' + message; // Placeholder for actual bot response
+				chatMessages.appendChild(botReply);
+			}, 1000);
+		}
+	});
+</script>
