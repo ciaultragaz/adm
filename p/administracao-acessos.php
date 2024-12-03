@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-12" id="colUsers">
+    <div class="col-lg-8 col-md-12" id="colUsers">
         <div class="card">
             <div class="card-header">
                 <h5>Usuários</h5>
@@ -12,7 +12,7 @@
                 <div class="dt-responsive table-responsive">
                     <div class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
-                            <div class="col-sm-12 col-md-6">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="dataTables_length">
                                     <label>
                                         Registros:
@@ -28,7 +28,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div id="dom-table_filter" class="dataTables_filter">
                                     <label>Procurar:<input id="search" type="search"
                                             class="form-control form-control-sm" placeholder="Procurar"
@@ -55,10 +55,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12 col-md-5">
+                            <div class="col-lg-5 col-md-5 col-sm-12">
                                 <div class="dataTables_info" id="simpletable_info"></div>
                             </div>
-                            <div class="col-sm-12 col-md-7">
+                            <div class="col-lg-7 col-md-7 col-sm-12">
                                 <div class="dataTables_paginate paging_simple_numbers" id="simpletable_paginate">
                                     <ul id="pagination" class="pagination"></ul>
                                 </div>
@@ -69,7 +69,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-4" id="colForm">
+    <div class="col-lg-4 col-md-12" id="colForm">
         <div class="card" id="cardMenuAccess">
             <div class="card-header">
                 <h5>Acesso ao Menu</h5>
