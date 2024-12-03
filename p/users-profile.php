@@ -2,7 +2,7 @@
 	<div class="card-body py-0">
 		<div class="user-about-block m-0">
 			<div class="row">
-				<div class="col-md-4 text-center mt-n5">
+				<div class="col-lg-4 col-md-12 text-center mt-n5">
 					<div class="change-profile text-center">
 						<div class="dropdown w-auto d-inline-block">
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,9 +47,9 @@
 							<?php echo $userCargo;?>
 						</p>
 					</div>
-					<div class="col-md-8 mt-md-4">
+					<div class="col-lg-8 col-md-12 mt-4">
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-lg-6 col-md-12">
 								<?php if($d['data']['email']){ ?>
 								<a href="mailto:demo@domain.com" class="mb-1 text-muted d-flex align-items-end text-h-primary">
 									<i class="feather icon-mail mr-2 f-18"></i><?php echo $d['data']['email'];?>
@@ -62,7 +62,7 @@
 								</a>
 								<?php } ?>
 							</div>
-							<div class="col-md-6">
+							<div class="col-lg-6 col-md-12">
 								<div class="media">
 									<i class="feather icon-map-pin mr-2 mt-1 f-18"></i>
 									<div class="media-body">
@@ -109,7 +109,7 @@
 		</div>
 	</div>
 	<div class="row">
-			<div class="col-md-8 order-md-2">
+			<div class="col-lg-8 col-md-12 order-lg-2">
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 					</div>
@@ -121,7 +121,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4 order-md-1">
+			<div class="col-lg-4 col-md-12 order-lg-1">
 			<div class="card latest-update-card" id="cardHistoryCargos">
              <div class="card-header">
                 <h5>Histórico </h5>
@@ -129,7 +129,7 @@
              <div class="card-body">
                 <div class="latest-update-box">
                 </div>
-                <div class="col-sm-12 col-md-7">
+                <div class="col-12">
                     <div class="text-center">
                             <div class="dataTables_paginate paging_simple_numbers" id="simpletable_paginate">
                             <ul id="pagination" class="pagination"></ul>
