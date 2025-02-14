@@ -1,28 +1,38 @@
+
 <?php
 require_once('../_config1.php');
-require_once('print-vales.php'); // O caminho para o arquivo Vales.php pode ser diferente
 
 $connection = connect();
 
-// Use funções adequadas para obter esses valores se eles não forem fornecidos diretamente através de $_GET
-$idFuncionario = $_GET['idFuncionario'] ?? null;
-$range = $_GET['range'] ?? null;
-$show = $_GET['show'] ?? 10;
-$page = $_GET['page'] ?? null;
-$fieldSort = $_GET['fieldSort'] ?? 'dataVencimento';
-$sort = $_GET['sort'] ?? 'ASC';
-$search = $_GET['search'] ?? null;
+// Get filter parameters
+$nome = $_GET['nome'] ?? '';
+$cargo = $_GET['cargo'] ?? '';
+$departamento = $_GET['departamento'] ?? '';
+$page = $_GET['page'] ?? 1;
+$limit = $_GET['limit'] ?? 10;
 
-$vales = new Vales();
-$vales->idFuncionario = $idFuncionario;
-$vales->range = $range;
-$vales->show = $show;
-$vales->page = $page;
-$vales->fieldSort = $fieldSort;
-$vales->sort = $sort;
-$vales->search = $search;
+// Build query with filters
+$query = "SELECT * FROM funcionarios WHERE 1=1";
+if (!empty($nome)) {
+    $query .= " AND nome LIKE '%".mysqli_real_escape_string($connection, $nome)."%'";
+}
+if (!empty($cargo)) {
+    $query .= " AND cargo_id = '".mysqli_real_escape_string($connection, $cargo)."'";
+}
+if (!empty($departamento)) {
+    $query .= " AND departamento = '".mysqli_real_escape_string($connection, $departamento)."'";
+}
 
-$data = $vales->getCountByMonth();
+// Add pagination
+$offset = ($page - 1) * $limit;
+$query .= " LIMIT $limit OFFSET $offset";
+
+$result = mysqli_query($connection, $query);
+$data = [];
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $data[] = $row;
+}
 
 header('Content-Type: application/json');
 echo json_encode($data);
