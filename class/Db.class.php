@@ -2,15 +2,13 @@
 class Db {
   public $db;
   public function __construct($dbSelect="") {
-
-    switch ($dbSelect) {
-        case 'appUltraleste':
-            $this->database = $dbSelect;
-            $this->server   = DB_SERVER;
-            $this->port     = DB_PORT;
-            $this->user     = DB_USER;
-            $this->pass     = DB_PASSWORD;
-            break;
+    $config = Config::getInstance()->get('db');
+    
+    $this->database = $config['database'];
+    $this->server = $config['host'];
+    $this->port = $config['port'];
+    $this->user = $config['user'];
+    $this->pass = $config['password'];
         case 'sigma-gas24h':
             $this->database = $dbSelect;
             $this->server   = 's2.corp.net.br';
