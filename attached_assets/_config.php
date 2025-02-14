@@ -14,13 +14,9 @@ $action = (isset($_REQUEST['action']))  ? $_REQUEST['action'] : null;
 $b = (isset($_REQUEST['b'])) ? $_REQUEST['b'] : null;
 $c = (isset($_REQUEST['c'])) ? $_REQUEST['c'] : null;
 
-if($_SERVER['HTTP_HOST']=="adm.ultragaz24horas.com"){
-    $domain = 'https://adm.ultragaz24horas.com/';
-    $domainFolder = "adm";
-} else if($_SERVER['HTTP_HOST']=="developer.ultragaz24horas.com") {
-    $domain = 'https://developer.ultragaz24horas.com/';
-    $domainFolder = "developer";
-}
+$domain = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+$domainFolder = "attached_assets";
+$localFolder = "";
 
 $googleApiKey = "AIzaSyBU7p8sZfVLmH2rHV_Ix-9xaB39C26WrTw";
 $idUser = (isset($_SESSION['idUser'])) ? $_SESSION['idUser'] : null;
