@@ -1,4 +1,8 @@
-modules = ["php-8.2"]
+modules = ["nodejs-20", "php-8.2"]
+run = "npm start"
 
 [nix]
 channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "npm start"]
